@@ -2,6 +2,13 @@
 
 <%= image_tag @artist.image_path %>
 
-<%= link_to("Edit Artist", edit_artist_path(@artist)) %>
-<%= link_to("Delete", artist_path(@artist), method: :delete) %>
-<%= link_to("<<<Back to View All Artists", artists_path) %>
+<h3>Songs</h3>
+<br /><%= link_to("New Song", new_artist_song_path(@artist))%>
+<ul>
+  <% @artist.songs.each do |song|%>
+    <li><%= link_to(song.title, song_path(song), { class: "song", id: "song_#{song.id}"} )%></li>
+  <% end %>
+</ul>
+<br /><%= link_to("Edit Artist", edit_artist_path(@artist)) %>
+<br /><%= link_to("Delete", artist_path(@artist), method: :delete) %>
+<br /><%= link_to("<<<Back to View All Artists", artists_path) %>
