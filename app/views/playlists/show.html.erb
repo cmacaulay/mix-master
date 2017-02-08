@@ -1,0 +1,9 @@
+<h1><%= @playlist.name %></h1>
+
+<% @playlist.songs.each do |song| %>
+  <ul>
+    <li><strong><%= link_to(song.title, song_path(song)) %></strong> by <%= link_to(song.artist.name, artist_path(song.artist) ) %></li>
+  </ul>
+<% end %>
+
+<%= link_to("<<< Back to Playlists", playlists_path) %>
