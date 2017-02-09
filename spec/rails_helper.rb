@@ -7,6 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 
+OmniAuth.config.test_mode = true
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 Shoulda::Matchers.configure do |config|
